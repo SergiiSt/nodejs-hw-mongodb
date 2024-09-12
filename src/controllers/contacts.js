@@ -53,7 +53,11 @@ export const pathContactController = async (req, res) => {
   if (!data) {
     throw createHttpError(404, `404, Contact not found!`);
   }
-  res.json({ status: 200, message: 'Successfully patched a contact!', data });
+  res.json({
+    status: 200,
+    message: 'Successfully patched a contact!',
+    data: data.data,
+  });
 };
 
 export const deleteContactController = async (req, res) => {

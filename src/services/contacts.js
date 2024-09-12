@@ -37,7 +37,7 @@ export const updateContact = async (filter, data, options = {}) => {
 
   return {
     data: rawResult.value,
-    isNew: Boolean(rawResult?.lastErrorObject?.upserted),
+    // isNew: Boolean(rawResult?.lastErrorObject?.upserted),
   };
 };
 export const deleteContact = (filter) =>
