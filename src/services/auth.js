@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 
 import { randomBytes } from 'crypto';
 
-import SessionCollection from '../db/models/Session.js';
+import SessionCollection from '../db/models/session.js';
 
 import {
   accessTokenLifetime,
