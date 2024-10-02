@@ -1,4 +1,4 @@
-import UserCollection from '../db/models/Users.js';
+import UserCollection from '../db/models/users.js';
 import createHttpError from 'http-errors';
 import bcrypt from 'bcrypt';
 
