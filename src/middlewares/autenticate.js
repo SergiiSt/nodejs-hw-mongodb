@@ -1,6 +1,6 @@
 import createHttpError from 'http-errors';
 
-import * as authServices from '../servicer/auth.js';
+import * as authServices from '../services/auth.js';
 
 const authenticate = async (req, res, next) => {
   const authorization = req.get('Authorization');
