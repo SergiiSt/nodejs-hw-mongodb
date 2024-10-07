@@ -11,7 +11,7 @@ export const getContacts = async ({
 }) => {
   const skip = (page - 1) * perPage;
   const contactsQuery = ContactCollection.find({ userId });
-  console.log(userId);
+  // console.log(userId);
 
   const contacts = await contactsQuery
     .skip(skip)
@@ -38,6 +38,7 @@ export const updateContact = async (filter, data, options = {}) => {
     ...options,
   });
   if (!rawResult || !rawResult.value) return null;
+  console.log(rawResult.value);
 
   return {
     data: rawResult.value,
