@@ -3,20 +3,22 @@ import calculatePaginationData from '../utils/calculatePaginationData.js';
 import { SORT_ORDER } from '../constants/sotrOrder.js';
 
 export const getContacts = async ({
+  userId,
   perPage,
   page,
   sortBy = 'name',
   sortOrder = SORT_ORDER[0],
 }) => {
   const skip = (page - 1) * perPage;
-  const contactsQuery = ContactCollection.find();
+  const contactsQuery = ContactCollection.find({ userId });
+  console.log(userId);
 
   const contacts = await contactsQuery
     .skip(skip)
     .limit(perPage)
     .sort({ [sortBy]: sortOrder });
 
-  const count = await ContactCollection.find().countDocuments();
+  const count = await ContactCollection.find({ userId }).countDocuments();
   const paginationData = calculatePaginationData({ count, perPage, page });
 
   return {
@@ -43,4 +45,4 @@ export const updateContact = async (filter, data, options = {}) => {
   };
 };
 export const deleteContact = (filter) =>
-  ContactCollection.findByIdAndDelete(filter);
+  ContactCollection.findOneAndDelete(filter);
